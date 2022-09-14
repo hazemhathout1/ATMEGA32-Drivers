@@ -1,3 +1,5 @@
+/*Bit Math*/
+
 #ifndef BIT_MATH_H
 #define BIT_MATH_H
 #define SET_BIT(Reg,BIT) Reg|=(1<<BIT)
