@@ -1,3 +1,10 @@
+/***********************************************/
+/***************SW     :GIE_INTERFACE********************************/
+/***************BY     :HAZEM HATHOUT********************************/
+/***************VERSION:V1.0********************************/
+/***************DATE   :23th SEPTEMBER 2022********************************/
+/***********************************************/
+
 #ifndef GIE_INT_H
 #define GIE_INT_H
 
@@ -29,13 +36,4 @@ void GIE_VidDisable();
 
 
 #endif
-#ifndef GIE_INT_H
-#define GIE_INT_H
 
-
-void GIE_VidEnable();
-void GIE_VidDisable();
-
-
-
-#endif
