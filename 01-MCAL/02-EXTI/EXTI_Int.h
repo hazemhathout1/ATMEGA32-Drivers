@@ -1,10 +1,3 @@
-/***********************************************/
-/***************SW     :EXTI_INTERFACE********************************/
-/***************BY     :HAZEM HATHOUT********************************/
-/***************VERSION:V1.0********************************/
-/***************DATE   :23th SEPTEMBER 2022********************************/
-/***********************************************/
-
 #ifndef EXTI_INT_H
 #define EXTI_INT_H
 
@@ -19,7 +12,7 @@
  * Description : This Function is used to Enable the External interrupt
  *
  * ******************************************/
-void EXTI_VidEnable(void);
+void EXTI_VidEnable(u8 copy_u8SENSECTRL);
 
 
 /*******************************************
@@ -34,6 +27,28 @@ void EXTI_VidEnable(void);
  * ******************************************/
 void EXTI_VidDisable(void);
 
+
+
+/*******************************************
+ * Func Name   : EXTI_vidSetSenseCTRL
+ * *****************************************
+ * Input Par   : copy_u8SENSECTRL
+ * Description : N/A
+ * Return Value: Void
+ * Description : N/A
+ * Description : This Function is used to set the sense control of the Wxternal interrupt
+ *
+ * ******************************************/
+void EXTI_vidSetSenseCTRL(u8 copy_u8SENSECTRL);
+
+
+typedef enum
+{
+	FALLING,
+	RISING,
+	LOWLVL,
+	ONCHANGE
+}et_SENSECTRL;
 
 
 #endif

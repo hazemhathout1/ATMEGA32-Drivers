@@ -1,10 +1,3 @@
-/***********************************************/
-/***************SW     :EXTI_PROGRAM********************************/
-/***************BY     :HAZEM HATHOUT********************************/
-/***************VERSION:V1.0********************************/
-/***************DATE   :23th SEPTEMBER 2022********************************/
-/***********************************************/
-
 #include "STD_Types.h"
 #include "BIT_MATH.h"
 #include "EXTI_Private.h"
@@ -83,7 +76,7 @@ SET_BIT(EXTI_GICR,GICR_INT2);
  * Description : This Function is used to Disable the External interrupt
  *
  * ******************************************/
-void EXTI_VidEnable(void)
+void EXTI_VidDisable(void)
 {
 #if INT_SRC==EXTI0_SRC
 	CLR_BIT(EXTI_GICR,GICR_INT0);
@@ -92,4 +85,40 @@ void EXTI_VidEnable(void)
 #elif INT_SRC=EXTI2_SRC
 	CLR_BIT(EXTI_GICR,GICR_INT2);
 #endif
+}
+
+
+
+
+/*******************************************
+ * Func Name   : EXTI_vidSetSenseCTRL
+ * *****************************************
+ * Input Par   : copy_u8SENSECTRL
+ * Description : N/A
+ * Return Value: Void
+ * Description : N/A
+ * Description : This Function is used to set the sense control of the Wxternal interrupt
+ *
+ * ******************************************/
+void EXTI_vidSetSenseCTRL(u8 copy_u8SENSECTRL)
+{
+	switch(copy_u8SENSECTRL){
+		case(FALLING):
+			CLR_BIT(EXTI_MCUCR,MCUCR_ISC00);
+			SET_BIT(EXTI_MCUCR,MCUCR_ISC01);
+			break;
+		case(RISING):
+			SET_BIT(EXTI_MCUCR,MCUCR_ISC00);
+			SET_BIT(EXTI_MCUCR,MCUCR_ISC01);
+			break;
+		case(LOWLVL):
+			CLR_BIT(EXTI_MCUCR,MCUCR_ISC00);
+			CLR_BIT(EXTI_MCUCR,MCUCR_ISC01);
+			break;
+		case(ONCHANGE):
+			SET_BIT(EXTI_MCUCR,MCUCR_ISC00);
+			CLR_BIT(EXTI_MCUCR,MCUCR_ISC01);
+			break;
+
+	}
 }
