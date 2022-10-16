@@ -3,6 +3,8 @@ This Repo Consist of ATMEGA32 Drivers:
 01-MCAL-->01-DIO
           02-EXTI
           03-GIE
+          04-ADC
+          05-Timers
           
 02-HAL -->01-HSSD
           02-LCD
