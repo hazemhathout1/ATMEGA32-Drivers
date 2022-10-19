@@ -1,7 +1,7 @@
 /***********************************************/
 /***************SW     :TMR_Program********************************/
 /***************BY     :HAZEM HATHOUT********************************/
-/***************VERSION:V1.0********************************/
+/***************VERSION:V1.1********************************/
 /***************DATE   :16th OCTOBER 2022********************************/
 /***********************************************/
 
@@ -363,33 +363,7 @@ void Tmr1_u16SetTimerValue(u16 Copy_u16Val)
 	TCNT1L=Copy_u16Val;
 }
 
-/*******************************************
- * Func Name   : TMR0_vidICUFPWMInit
- * *****************************************
- * Input Par   : N/A
- * Description : N/A
- * Return Value: void
- * Description : N/A
- * Description : This function is used to initialise the ICU as FPWM in Timer0
- *
- * ******************************************/
-void TMR0_vidICUFPWMInit()
-{
-	/*Select wgm as FPWM*/
-	SET_BIT(TCCR0,WGM00);
-	SET_BIT(TCCR0,WGM01);
-	/*select compare match fast pwm
-	 * select set on top clear on CMP*/
-	CLR_BIT(TCCR0,COM00);
-	SET_BIT(TCCR0,COM01);
-	/*Set OCR Value
-	 * Duty=OCR/256*/
-	TMR_OCR=64;
-	/*Select Prescalar*/
-	CLR_BIT(TCCR0,CS02);
-	SET_BIT(TCCR0,CS01);
-	CLR_BIT(TCCR0,CS00);
-}
+
 
 /*******************************************
  * Func Name   : TMR1_vidClrTime
